@@ -1,14 +1,8 @@
-
-
-import routes from "./router"
+import routes from './router'
 import { useRoutes } from 'react-router-dom'
-function App() {
-  const outlet = useRoutes(routes)
-  return (
-    <>
-      {outlet}
-    </>
-  )
+const App = () => {
+    const outlet = useRoutes(routes)
+    return <>{outlet}</>
 }
 
 export default App
@@ -20,4 +14,6 @@ export default App
 // 0920 32-36
 // 0921 37-42 1.cavans login 2.how to use styled component
 // 0922 43
-// 0923  百万补贴
+// 0923  
+
+// 0926 44

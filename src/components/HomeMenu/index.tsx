@@ -40,7 +40,6 @@ const items: MenuItem[] = [
     const menuClick = (e: MenuInfo)=>{
         navigateTo(e.key)
       }
-
       return (
         <Menu theme="dark" defaultSelectedKeys={['/home/personal']} mode="inline" items={items} onClick={menuClick} />
       )
