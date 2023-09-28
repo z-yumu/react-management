@@ -12,8 +12,6 @@ export default App
 // 0918 22-26
 // 0919 27-31
 // 0920 32-36
-// 0921 37-42 1.cavans login 2.how to use styled component
+// 0921 37-42 
 // 0922 43
-// 0923  
-
-// 0926 44
+// 0928 44-48 1.cavans login 
