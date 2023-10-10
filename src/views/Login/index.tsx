@@ -1,17 +1,18 @@
 import {useSelector,useDispatch} from 'react-redux'
+import { increment, decrement } from '@/store/user'
 
 
 
 
 const Login = ()=>{
-    const {test} = useSelector((state:RootState)=>({test:state.test}))
+    const { testVal } = useSelector((state:RootState)=>({testVal:state.user.testVal}))
     const dispatch = useDispatch()
-    const chanageTest = ()=>{
-        dispatch({type:'changeTest',val:'8848'})
-    }
+   
     return(
         <>
-            <h1 onClick={chanageTest}>{test}</h1>
+            <button onClick={()=>{dispatch(increment())}}>+</button>
+            <button onClick={()=>{dispatch(decrement())}}>-</button>
+            <h1>{testVal}</h1>
         </>
     )
 }
