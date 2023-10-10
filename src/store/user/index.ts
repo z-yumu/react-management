@@ -1,12 +1,12 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 
 // 为 slice state 定义一个类型
-interface UserState {
+interface IUserState {
   testVal: number
 }
 
 // 使用该类型定义初始 state
-const initialState: UserState = {
+const initialState: IUserState = {
   testVal: 9527
 }
 
@@ -21,8 +21,22 @@ export const counterSlice = createSlice({
     decrement: state => {
       state.testVal -= 1
     },
-  }
+  },
+  // 异步
+  extraReducers(builder) {
+    builder.addCase(incrementAsync.fulfilled, (state) => {
+      state.testVal = 996
+    })
+  },
 })
+
+export const incrementAsync = createAsyncThunk(
+  'incrementAsync',
+  async () => {
+   
+  }
+)
+
 
 export const { increment, decrement } = counterSlice.actions
 

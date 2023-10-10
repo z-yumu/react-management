@@ -6,7 +6,7 @@ import { increment, decrement } from '@/store/user'
 
 const Login = ()=>{
     const { testVal } = useSelector((state:RootState)=>({testVal:state.user.testVal}))
-    const dispatch = useDispatch()
+    const dispatch:AppDispatch = useDispatch()
    
     return(
         <>
