@@ -3,11 +3,15 @@ import { createSlice,createAsyncThunk } from '@reduxjs/toolkit'
 // 为 slice state 定义一个类型
 interface IUserState {
   testVal: number
+  token: string
+  userInfo: object
 }
 
 // 使用该类型定义初始 state
 const initialState: IUserState = {
-  testVal: 9527
+  testVal: 9527,
+  token: '',
+  userInfo: {},
 }
 
 export const counterSlice = createSlice({

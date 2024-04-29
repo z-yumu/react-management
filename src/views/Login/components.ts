@@ -11,7 +11,7 @@ export const LoginFormContainer = styled.div`
 
 export const LeftComponent = styled.div`
     width: 60%;
-    background-color: red;
+    background-color: gray;
 `
 
 export const RightComponent = styled.div`
