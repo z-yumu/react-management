@@ -4,6 +4,7 @@ import { message } from 'antd'
 
 const isProd = process.env.NODE_ENV === 'production'
 
+
 const request = axios.create({
     // later could use .env.dev
     baseURL: isProd ? 'http://localhost:3000' : '/api',
