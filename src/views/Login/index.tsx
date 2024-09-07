@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { increment, decrement } from '@/store/user'
-import { Input, Image, message, Form, Checkbox, Button, FormProps } from 'antd'
-import UserAPI from '@/apis/user'
+// import { increment, decrement } from '@/store/user'
+import { Input, Form, Checkbox, Button, FormProps } from 'antd'
+import { getUerInfoApi } from '@/apis/user'
 import { LeftComponent, LoginFormContainer, RightComponent } from './components'
 
 type FieldType = {
@@ -15,12 +15,12 @@ const Login: React.FC = () => {
     const { testVal } = useSelector((state: RootState) => ({
         testVal: state.user.testVal,
     }))
-    const dispatch: AppDispatch = useDispatch()
-    const [imgSrc, setImgSrc] = useState('')
+    // const dispatch: AppDispatch = useDispatch()
+    // const [imgSrc, setImgSrc] = useState('')
 
     // initial code once
     useEffect(() => {
-        console.log('testVal', testVal)
+        // console.log('testVal', testVal)
     }, [])
 
     // const getCode = async () => {
@@ -34,8 +34,16 @@ const Login: React.FC = () => {
     //     }
     // }
 
-    const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
-        console.log('Success:', values)
+    const onFinish: FormProps<FieldType>['onFinish'] = async (values) => {
+        try {
+            const res = await getUerInfoApi({
+                account: 'test',
+                password: '996',
+            })
+            // console.log('Success:', res)
+        } catch (error) {
+            console.error('error', error)
+        }
     }
 
     const onFinishFailed: FormProps<FieldType>['onFinishFailed'] = () => {}
@@ -48,9 +56,7 @@ const Login: React.FC = () => {
             <button onClick={()=>{dispatch(decrement())}}>-</button>
             <h1>{testVal}</h1> */}
             <LoginFormContainer>
-                <LeftComponent>
-                    
-                </LeftComponent>
+                <LeftComponent></LeftComponent>
                 <RightComponent>
                     <Form
                         name="basic"
@@ -98,7 +104,7 @@ const Login: React.FC = () => {
 
                         <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
                             <Button type="primary" htmlType="submit">
-                                Submit
+                                Login
                             </Button>
                         </Form.Item>
                     </Form>

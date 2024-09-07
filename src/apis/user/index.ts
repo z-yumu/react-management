@@ -1,3 +1,3 @@
 import request from '@/utils/request'
 
-export const getUerInfoApi = () => request.post('/api/v1/articleEdit', {})
+export const getUerInfoApi = (data:{account: string, password: string}) => request.post('/auth/loginddfd', data)
